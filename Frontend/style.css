@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    text-align: center;
+    margin: 0;
+    padding: 2em;
+}
+
+.info-text {
+    margin-bottom: 2em;
+}
+
+.login-box {
+    background: #fff;
+    padding: 2em;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    margin-bottom: 1em;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 0.8em;
+    background-color: #0051ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #003fd9;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
+
+
+/* dashboard */
+
+.dashboard {
+    text-align: center;
+    padding: 2em;
+}
+
+.nav-links {
+    margin: 2em 0;
+}
+
+.nav-links a {
+    display: inline-block;
+    margin: 0 1em;
+    text-decoration: none;
+    color: #0051ff;
+    font-weight: bold;
+}
+
+#logoutBtn {
+    padding: 0.8em 2em;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

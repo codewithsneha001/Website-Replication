@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Tabs</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #3789b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .logout span {
+            cursor: pointer;
+            color: black;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            /* min-height: 0; */
+            /* Prevents sidebar overflow from pushing layout */
+        }
+        
+        nav {
+            width: 220px;
+            background-color: #22313f;
+            color: white;
+            padding: 20px 10px;
+            overflow-y: auto;
+            /* Enables vertical scroll */
+            height: 100%;
+            /* Adjust height based on your header */
+        }
+        
+        nav .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav .profile img {
+            width: 60px;
+            border-radius: 50%;
+        }
+        
+        nav .profile h3 {
+            margin: 10px 0 5px;
+        }
+        
+        nav .profile p {
+            margin: 0;
+            font-size: 14px;
+            color: #b0bec5;
+        }
+        
+        nav details summary::after {
+            content: '⯈';
+            float: right;
+        }
+        
+        nav details[open] summary::after {
+            content: '⯆';
+        }
+        
+        nav a,
+        nav summary {
+            color: #d0dfe6;
+            padding: 8px 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        nav a:hover,
+        nav summary:hover {
+            background-color: #34495e;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 20px 20px;
+        }
+        
+        .breadcrumbs {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumbs a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        .tab-container {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ccc;
+        }
+        
+        .tab-btn {
+            background-color: #3789b5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .tab-btn.active {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 15px 0;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-content .form-grid {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tab-content input {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        /*         
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            border-radius: 3px;
+            padding: 8px;
+            flex-shrink: 0;
+        } */
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 83%;
+            height: 50px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Magnus</div>
+        <div>
+            <a href="index.html" class="logout">
+                <span>🔓 Logout</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" />
+                <h3>Guest User</h3>
+                <p>User</p>
+            </div>
+
+            <a href="home.html">🏠 Home</a>
+
+            <details>
+                <summary>👥 Employee</summary>
+                <a href="register.html">Create</a>
+                <a href="search.html">Search</a>
+            </details>
+
+            <details>
+                <summary>📋 More</summary>
+                <a href="multipletabs.html">Multiple Tabs</a>
+                <a href="menu.html">Menu</a>
+                <a href="autocomplete.html">Autocomplete</a>
+                <a href="collapsiblecontent.html">Collapsible Content</a>
+                <a href="images.html">Images</a>
+                <a href="slider.html">Slider</a>
+                <a href="tooltips.html">Tooltips</a>
+                <a href="popups.html">Popups</a>
+                <a href="links.html">Links</a>
+                <a href="cssprop.html">CSS Properties</a>
+                <a href="iframes.html">iFrames</a>
+            </details>
+
+            <details>
+                <summary>⚙️ Settings</summary>
+                <a href="#">Preferences</a>
+            </details>
+        </nav>
+
+        <main>
+            <div class="breadcrumbs">
+                <span>🏠</span> <a href="home.html">Home</a> &nbsp; > &nbsp; <a href="home.html">More</a> &nbsp; > &nbsp;Multiple Tabs
+            </div>
+
+            <h2 style="margin-bottom: 20px;">Tabs</h2>
+
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showTab(0)">Plan to Succeed</button>
+                    <button class="tab-btn" onclick="showTab(1)">UnLearning</button>
+                    <button class="tab-btn" onclick="showTab(2)">Ways of Unlearning</button>
+                </div>
+
+                <div class="tab-content active">
+                    <p>
+                        Congratulations, You are in the best place to learn the technologies for JOB. Please strictly follow the plan for the first 45 days to see the unbelievable results.
+                    </p>
+                    <p>
+                        You must UNLEARN to LEARN new things every day as technologies are changing faster than ever and Because the old rules will no longer apply...and so your old knowledge is. It's time for us to think beyond.
+                    </p>
+                    <p>
+                        It's not just learning technologies, Also You learn how to use your knowledge and experience to get a job in less than 100 days.
+                    </p>
+                    <div class="form-grid">
+                        <input type="text" placeholder="Enter here..." />
+                        <input type="text" placeholder="Enter here..." />
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <p>
+                        Unlearning is the process of realizing that something which we learned earlier is incorrect, ineffective, or obsolete, admitting it and deciding to erase such bad conditioning and misconceptions from our mind for good. It is the process of exploring what
+                        we have stored in our system and deleting all the unnecessary data. It is the process of saying bye to an old, obsolete, and outdated paradigm and embracing a new paradigm and willingly undergoing a paradigm shift. </p>
+                    <p>Unfortunately, we are controlled by myths which do not allow us to open our eyes to reality</p>
+                    </p>
+                    <div class="form-grid">
+                        <input type="text" placeholder="Enter here..." />
+                        <input type="text" placeholder="Enter here..." />
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <p>
+                        The first step towards becoming an “unlearned” is not just to have a thirst for knowledge but to question our knowledge. Discussing our knowledge with those who are competent in a particular field, being challenged constantly, and being ready to be proved
+                        wrong will help us understand whether what we have learned is still relevant or obsolete. It is also important to question one’s belief system and check whether we are treating myths as scientific facts. </p>
+                    <p>The next important step is to take steps to develop creative and critical thinking.
+                    </p>
+                    <div class="form-grid">
+                        <input type="text" placeholder="Enter here..." />
+                        <input type="text" placeholder="Enter here..." />
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+        <footer>
+            © 2025 JALA Academy. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        function showTab(index) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            contents.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>

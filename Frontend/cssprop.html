@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Properties</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #3789b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .logout span {
+            cursor: pointer;
+            color: black;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            /* min-height: 0; */
+            /* Prevents sidebar overflow from pushing layout */
+        }
+        
+        nav {
+            width: 220px;
+            background-color: #22313f;
+            color: white;
+            padding: 20px 10px;
+            overflow-y: auto;
+            /* Enables vertical scroll */
+            height: 100%;
+            /* Adjust height based on your header */
+        }
+        
+        nav .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav .profile img {
+            width: 60px;
+            border-radius: 50%;
+        }
+        
+        nav .profile h3 {
+            margin: 10px 0 5px;
+        }
+        
+        nav .profile p {
+            margin: 0;
+            font-size: 14px;
+            color: #b0bec5;
+        }
+        
+        nav details summary::after {
+            content: '⯈';
+            float: right;
+        }
+        
+        nav details[open] summary::after {
+            content: '⯆';
+        }
+        
+        nav a,
+        nav summary {
+            color: #d0dfe6;
+            padding: 8px 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        nav a:hover,
+        nav summary:hover {
+            background-color: #34495e;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            padding: 20px 20px;
+        }
+        
+        .breadcrumbs {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumbs a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 83%;
+            height: 50px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            flex-shrink: 0;
+        }
+        
+        main {
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .tab-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        
+        .tab-button.active {
+            background-color: white;
+            color: #3498db;
+            border-bottom: 2px solid white;
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        a {
+            display: block;
+            margin: 5px 0;
+        }
+        
+        .label {
+            display: inline-block;
+            padding: 5px 12px;
+            color: white;
+            margin: 5px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        
+        .default {
+            background-color: #777;
+        }
+        
+        .primary {
+            background-color: #007bff;
+        }
+        
+        .success {
+            background-color: #28a745;
+        }
+        
+        .info {
+            background-color: #17a2b8;
+        }
+        
+        .warning {
+            background-color: #ffc107;
+            color: black;
+        }
+        
+        .danger {
+            background-color: #dc3545;
+        }
+        
+        .alert {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            color: white;
+        }
+        
+        .alert-success {
+            background-color: #28a745;
+        }
+        
+        .alert-info {
+            background-color: #17a2b8;
+        }
+        
+        .alert-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+        
+        .alert-danger {
+            background-color: #dc3545;
+        }
+        
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn-default {
+            background-color: #777;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+        }
+        
+        .btn-success {
+            background-color: #28a745;
+        }
+        
+        .btn-info {
+            background-color: #17a2b8;
+        }
+        
+        .btn-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 10px 0;
+            height: 20px;
+            width: 100%;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .bar-success {
+            background-color: #28a745;
+        }
+        
+        .bar-info {
+            background-color: #17a2b8;
+        }
+        
+        .bar-warning {
+            background-color: #ffc107;
+            color: black;
+        }
+        
+        .bar-danger {
+            background-color: #dc3545;
+        }
+        
+        .breadcrumbs {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            /* Prevent line breaks */
+            display: flex;
+            /* Keep items in a row */
+            align-items: center;
+            flex-wrap: nowrap;
+            /* Do not wrap items */
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Magnus</div>
+        <div>
+            <a href="index.html" class="logout">
+                <span>🔓 Logout</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" />
+                <h3>Guest User</h3>
+                <p>User</p>
+            </div>
+
+            <a href="home.html">🏠 Home</a>
+
+            <details>
+                <summary>👥 Employee</summary>
+                <a href="register.html">Create</a>
+                <a href="search.html">Search</a>
+            </details>
+
+            <details>
+                <summary>📋 More</summary>
+                <a href="multipletabs.html">Multiple Tabs</a>
+                <a href="menu.html">Menu</a>
+                <a href="autocomplete.html">Autocomplete</a>
+                <a href="collapsiblecontent.html">Collapsible Content</a>
+                <a href="images.html">Images</a>
+                <a href="slider.html">Slider</a>
+                <a href="tooltips.html">Tooltips</a>
+                <a href="popups.html">Popups</a>
+                <a href="links.html">Links</a>
+                <a href="cssprop.html">CSS Properties</a>
+                <a href="iframes.html">iFrames</a>
+            </details>
+
+            <details>
+                <summary>⚙️ Settings</summary>
+                <a href="#">Preferences</a>
+            </details>
+        </nav>
+
+        <main>
+            <div class="breadcrumbs">
+                <span>🏠</span>
+                <a href="home.html">Home</a> &gt;
+                <a href="home.html">More</a> &gt;
+                <span>CSS Properites</span>
+            </div>
+
+
+            <!-- <h2 style="margin-bottom: 20px;">Tabs</h2> -->
+            <h2>CSS Properties</h2>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('links')">Links</button>
+                <button class="tab-button" onclick="showTab('labels')">Labels</button>
+                <button class="tab-button" onclick="showTab('buttons')">Buttons</button>
+                <button class="tab-button" onclick="showTab('alerts')">Alerts</button>
+                <button class="tab-button" onclick="showTab('progress')">Progress Bars</button>
+            </div>
+
+            <div id="links" class="tab-content active">
+                <a href="https://www.google.com" target="_blank">Google</a>
+                <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://httpstat.us/404" target="_blank">Broken Link (404)</a>
+                <a href="https://httpstat.us/503" target="_blank">Service Unavailable (503)</a>
+                <a href="https://developer.mozilla.org/" target="_blank">MDN Docs</a>
+            </div>
+
+            <div id="labels" class="tab-content">
+                <span class="label default">Default</span>
+                <span class="label primary">Primary</span>
+                <span class="label success">Success</span>
+                <span class="label info">Info</span>
+                <span class="label warning">Warning</span>
+                <span class="label danger">Danger</span>
+            </div>
+
+            <div id="buttons" class="tab-content">
+                <button class="btn-default">Default</button>
+                <button class="btn-primary">Primary</button>
+                <button class="btn-success">Success</button>
+                <button class="btn-info">Info</button>
+                <button class="btn-warning">Warning</button>
+                <button class="btn-danger">Danger</button>
+            </div>
+
+            <div id="alerts" class="tab-content">
+                <div class="alert alert-success">✓ Success! Indicates a successful or positive action.</div>
+                <div class="alert alert-info">ℹ Info! Indicates a neutral informative change or action.</div>
+                <div class="alert alert-warning">⚠ Warning! Indicates a warning that might need attention.</div>
+                <div class="alert alert-danger">✖ Danger! Indicates a dangerous or potentially negative action.</div>
+            </div>
+
+            <div id="progress" class="tab-content">
+                <div class="progress-bar">
+                    <div class="progress-fill bar-success" style="width: 80%;">80%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill bar-info" style="width: 60%;">60%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill bar-warning" style="width: 40%;">40%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill bar-danger" style="width: 20%;">20%</div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            © 2025 JALA Academy. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+            document.querySelector(`.tab-button[onclick*="${tabId}"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Links
+    </title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+        
+        header {
+            background-color: #3789b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .logout span {
+            cursor: pointer;
+            color: black;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            /* min-height: 0; */
+            /* Prevents sidebar overflow from pushing layout */
+        }
+        
+        nav {
+            width: 220px;
+            background-color: #22313f;
+            color: white;
+            padding: 20px 10px;
+            overflow-y: auto;
+            /* Enables vertical scroll */
+            height: 100%;
+            /* Adjust height based on your header */
+        }
+        
+        nav .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav .profile img {
+            width: 60px;
+            border-radius: 50%;
+        }
+        
+        nav .profile h3 {
+            margin: 10px 0 5px;
+        }
+        
+        nav .profile p {
+            margin: 0;
+            font-size: 14px;
+            color: #b0bec5;
+        }
+        
+        nav details summary::after {
+            content: '⯈';
+            float: right;
+        }
+        
+        nav details[open] summary::after {
+            content: '⯆';
+        }
+        
+        nav a,
+        nav summary {
+            color: #d0dfe6;
+            padding: 8px 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        nav a:hover,
+        nav summary:hover {
+            background-color: #34495e;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            padding: 20px 20px;
+            min-height: 100vh;
+        }
+        
+        .breadcrumbs {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumbs a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 83%;
+            height: 50px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            flex-shrink: 0;
+        }
+        
+        .container {
+            padding: 20px;
+            margin: 10px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+        }
+        
+        .tabs button {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            transition: border-color 0.3s, font-weight 0.3s;
+        }
+        
+        .tabs button.active {
+            border-bottom: 3px solid #007bff;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        img {
+            height: 80px;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Magnus</div>
+        <div>
+            <a href="index.html" class="logout">
+                <span>🔓 Logout</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" />
+                <h3>Guest User</h3>
+                <p>User</p>
+            </div>
+
+            <a href="home.html">🏠 Home</a>
+
+            <details>
+                <summary>👥 Employee</summary>
+                <a href="register.html">Create</a>
+                <a href="search.html">Search</a>
+            </details>
+
+            <details>
+                <summary>📋 More</summary>
+                <a href="multipletabs.html">Multiple Tabs</a>
+                <a href="menu.html">Menu</a>
+                <a href="autocomplete.html">Autocomplete</a>
+                <a href="collapsiblecontent.html">Collapsible Content</a>
+                <a href="images.html">Images</a>
+                <a href="slider.html">Slider</a>
+                <a href="tooltips.html">Tooltips</a>
+                <a href="popups.html">Popups</a>
+                <a href="links.html">Links</a>
+                <a href="cssprop.html">CSS Properties</a>
+                <a href="iframes.html">iFrames</a>
+            </details>
+
+            <details>
+                <summary>⚙️ Settings</summary>
+                <a href="#">Preferences</a>
+            </details>
+        </nav>
+
+        <main>
+            <div class="breadcrumbs">
+                <span>🏠</span> <a href="home.html">Home</a> &nbsp; > &nbsp; <a href="home.html">More</a> &nbsp; > &nbsp;Links
+            </div>
+
+            <div class="container">
+                <h2>Links</h2>
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('working')">Working Links</button>
+                    <button class="tab-button" onclick="showTab('broken')">Broken Links</button>
+                    <button class="tab-button" onclick="showTab('image')">Image Links</button>
+                    <button class="tab-button" onclick="showTab('status')">Status Codes</button>
+                </div>
+
+                <div id="working" class="tab-content active">
+                    <h3>Working Links</h3>
+                    <ul>
+                        <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                        <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></li>
+                        <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div id="broken" class="tab-content">
+                    <h3>Broken Links</h3>
+                    <ul>
+                        <li><a href="https://thispagedoesnotexist123.com" target="_blank">Broken Link 1</a></li>
+                        <li><a href="https://invalidwebsite.broken" target="_blank">Broken Link 2</a></li>
+                        <li><a href="https://404errorlink.com/page404" target="_blank">Broken Link 3</a></li>
+                    </ul>
+                </div>
+
+                <div id="image" class="tab-content">
+                    <h3>Image Links</h3>
+                    <ul>
+                        <li>
+                            <a href="https://www.wikipedia.org" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png" alt="Wikipedia" /></a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com" target="_blank"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" /></a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com" target="_blank"><img src="https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png" alt="YouTube" /></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="status" class="tab-content">
+                    <h3>Status Codes</h3>
+                    <ul>
+                        <li><a href="https://httpstat.us/200" target="_blank">Status 200 - OK</a></li>
+                        <li><a href="https://httpstat.us/404" target="_blank">Status 404 - Not Found</a></li>
+                        <li><a href="https://httpstat.us/500" target="_blank">Status 500 - Server Error</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </main>
+        <footer>
+            © 2025 JALA Academy. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab and activate button
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+
+
+</body>
+
+</html>

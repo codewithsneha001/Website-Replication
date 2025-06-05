@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autocomplete</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #3789b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .logout span {
+            cursor: pointer;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            /* min-height: 0; */
+            /* Prevents sidebar overflow from pushing layout */
+        }
+        
+        nav {
+            width: 220px;
+            background-color: #22313f;
+            color: white;
+            padding: 20px 10px;
+            overflow-y: auto;
+            /* Enables vertical scroll */
+            height: 100%;
+            /* Adjust height based on your header */
+        }
+        
+        nav .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav .profile img {
+            width: 60px;
+            border-radius: 50%;
+        }
+        
+        nav .profile h3 {
+            margin: 10px 0 5px;
+        }
+        
+        nav .profile p {
+            margin: 0;
+            font-size: 14px;
+            color: #b0bec5;
+        }
+        
+        nav details summary::after {
+            content: '⯈';
+            float: right;
+        }
+        
+        nav details[open] summary::after {
+            content: '⯆';
+        }
+        
+        nav a,
+        nav summary {
+            color: #d0dfe6;
+            padding: 8px 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        nav a:hover,
+        nav summary:hover {
+            background-color: #34495e;
+        }
+        
+        main {
+            margin-left: 200px;
+            padding: 2rem;
+            min-height: calc(100vh - 70px);
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 83%;
+            height: 50px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            flex-shrink: 0;
+        }
+        
+        .breadcrumb {
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            color: #6b7280;
+        }
+        /* Form Wrapper */
+        
+        .form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+        
+        #suggestions {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            border: 1px solid #ccc;
+            border-top: none;
+            background-color: white;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 100;
+            border-radius: 0 0 0.375rem 0.375rem;
+        }
+        
+        #suggestions div {
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+        }
+        
+        #suggestions div:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-clear {
+            background-color: #e5e7eb;
+            color: black;
+        }
+        
+        .btn-clear:hover {
+            background-color: #d1d5db;
+        }
+        
+        .btn-save {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Magnus</div>
+        <div>
+            <a href="index.html" class="logout">
+                <span>🔓 Logout</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" />
+                <h3>Guest User</h3>
+                <p>User</p>
+            </div>
+
+            <a href="home.html">🏠 Home</a>
+
+            <details>
+                <summary>👥 Employee</summary>
+                <a href="register.html">Create</a>
+                <a href="search.html">Search</a>
+            </details>
+
+            <details>
+                <summary>📋 More</summary>
+                <a href="multipletabs.html">Multiple Tabs</a>
+                <a href="menu.html">Menu</a>
+                <a href="autocomplete.html">Autocomplete</a>
+                <a href="collapsiblecontent.html">Collapsible Content</a>
+                <a href="images.html">Images</a>
+                <a href="slider.html">Slider</a>
+                <a href="tooltips.html">Tooltips</a>
+                <a href="popups.html">Popups</a>
+                <a href="links.html">Links</a>
+                <a href="cssprop.html">CSS Properties</a>
+                <a href="iframes.html">iFrames</a>
+            </details>
+
+            <details>
+                <summary>⚙️ Settings</summary>
+                <a href="#">Preferences</a>
+            </details>
+        </nav>
+
+        <main>
+            <div class="breadcrumb">
+                Home &gt; Employee &gt; Autocomplete
+            </div>
+
+            <div class="form-wrapper">
+                <form id="autocompleteForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="employeeName">Employee Name</label>
+                            <input type="text" id="employeeName" placeholder="Start typing name..." autocomplete="off" />
+                            <div id="suggestions" class="hidden"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department">
+              <option>Select Department</option>
+              <option>HR</option>
+              <option>Engineering</option>
+              <option>Sales</option>
+            </select>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="reset" class="btn btn-clear">Clear</button>
+                        <button type="submit" class="btn btn-save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            &copy; 2025 Magnus. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        const employeeInput = document.getElementById("employeeName");
+        const suggestionsBox = document.getElementById("suggestions");
+
+        const employeeList = [
+            "Alice Johnson",
+            "Bob Smith",
+            "Charlie Brown",
+            "David Williams",
+            "Eve Davis",
+            "Frank Miller",
+            "Grace Lee"
+        ];
+
+        employeeInput.addEventListener("input", () => {
+            const value = employeeInput.value.toLowerCase();
+            suggestionsBox.innerHTML = "";
+
+            if (value === "") {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            const filtered = employeeList.filter(name =>
+                name.toLowerCase().includes(value)
+            );
+
+            if (filtered.length === 0) {
+                suggestionsBox.style.display = "none";
+                return;
+            }
+
+            filtered.forEach(name => {
+                const div = document.createElement("div");
+                div.textContent = name;
+                div.addEventListener("click", () => {
+                    employeeInput.value = name;
+                    suggestionsBox.innerHTML = "";
+                    suggestionsBox.style.display = "none";
+                });
+                suggestionsBox.appendChild(div);
+            });
+
+            suggestionsBox.style.display = "block";
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!employeeInput.contains(event.target)) {
+                suggestionsBox.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

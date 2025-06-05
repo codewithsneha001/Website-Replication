@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Employee</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #3789b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .logout span {
+            cursor: pointer;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            /* min-height: 0; */
+            /* Prevents sidebar overflow from pushing layout */
+        }
+        
+        nav {
+            width: 220px;
+            background-color: #22313f;
+            color: white;
+            padding: 20px 10px;
+            overflow-y: auto;
+            /* Enables vertical scroll */
+            height: 100%;
+            /* Adjust height based on your header */
+        }
+        
+        nav .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav .profile img {
+            width: 60px;
+            border-radius: 50%;
+        }
+        
+        nav .profile h3 {
+            margin: 10px 0 5px;
+        }
+        
+        nav .profile p {
+            margin: 0;
+            font-size: 14px;
+            color: #b0bec5;
+        }
+        
+        nav details summary::after {
+            content: '⯈';
+            float: right;
+        }
+        
+        nav details[open] summary::after {
+            content: '⯆';
+        }
+        
+        nav a,
+        nav summary {
+            color: #d0dfe6;
+            padding: 8px 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        nav a:hover,
+        nav summary:hover {
+            background-color: #34495e;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 20px 20px;
+        }
+        
+        .breadcrumbs {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumbs a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        /* === Tab Buttons === */
+        
+        .tab-button {
+            font-weight: 600;
+            border: none;
+            background: none;
+            border-bottom: 2px solid transparent;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+        
+        .tab-button:hover {
+            color: #1d4ed8;
+        }
+        
+        .tab-button.border-blue-600 {
+            border-color: #2563eb;
+            background-color: #e0ecf7;
+            border-radius: 6px 6px 0 0;
+        }
+        /* === Tab Content Area === */
+        
+        .tab-content {
+            margin-top: 20px;
+        }
+        /* === Single Menus Buttons === */
+        
+        #singleMenus button {
+            display: block;
+            width: 220px;
+            margin: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+        /* === Submenu Parent Buttons === */
+        
+        #subMenus .group>button {
+            width: 220px;
+            font-weight: 600;
+            text-align: center;
+        }
+        /* === Dropdown Styling === */
+        
+        .group-hover\:block {
+            display: none;
+        }
+        
+        .group:hover .group-hover\:block {
+            display: block;
+        }
+        
+        #subMenus .group {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        
+        #subMenus .group-hover\:block {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 180px;
+        }
+        
+        #subMenus .group-hover\:block button {
+            padding: 10px 16px;
+            width: 100%;
+            text-align: left;
+            font-weight: 500;
+            font-size: 15px;
+            border: none;
+            background: white;
+        }
+        
+        #subMenus .group-hover\:block button:hover {
+            background-color: #f0f4f8;
+        }
+        /* === Responsive Text === */
+        
+        .text-gray-700 {
+            font-size: 16px;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 83%;
+            height: 50px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Magnus</div>
+        <div class="logout"><span>🔓 Logout</span></div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" />
+                <h3>Guest User</h3>
+                <p>User</p>
+            </div>
+
+            <a href="home.html">🏠 Home</a>
+
+            <details>
+                <summary>👥 Employee</summary>
+                <a href="register.html">Create</a>
+                <a href="search.html">Search</a>
+            </details>
+
+            <details>
+                <summary>📋 More</summary>
+                <a href="multipletabs.html">Multiple Tabs</a>
+                <a href="menu.html">Menu</a>
+                <a href="autocomplete.html">Autocomplete</a>
+                <a href="collapsiblecontent.html">Collapsible Content</a>
+                <a href="images.html">Images</a>
+                <a href="slider.html">Slider</a>
+                <a href="tooltips.html">Tooltips</a>
+                <a href="popups.html">Popups</a>
+                <a href="links.html">Links</a>
+                <a href="cssprop.html">CSS Properties</a>
+                <a href="iframes.html">iFrames</a>
+            </details>
+
+            <details>
+                <summary>⚙️ Settings</summary>
+                <a href="#">Preferences</a>
+            </details>
+        </nav>
+
+        <main class="p-4">
+            <div class="breadcrumbs">
+                <span>🏠</span>
+                <a href="home.html">Home</a> &gt;
+                <a href="home.html">More</a> &gt;
+                <span>Menu</span>
+            </div>
+
+
+            <!-- <h2 style="margin-bottom: 20px;">Tabs</h2> -->
+            <h2>Menu</h2>
+            <!-- Breadcrumb -->
+            <!-- <div class="text-sm text-gray-600 mb-4">
+                Home &gt; More Options &gt; Menus
+            </div> -->
+
+            <!-- Tab Buttons -->
+            <div class="flex space-x-4 border-b mb-4">
+                <button id="singleTab" class="tab-button border-b-2 border-blue-600 text-blue-600 px-4 py-2">Single Menus</button>
+                <button id="subTab" class="tab-button text-gray-600 px-4 py-2">Sub Menus</button>
+            </div>
+
+            <!-- Single Menus Section -->
+            <div id="singleMenus" class="tab-content" style="display: block;">
+                <div class=" space-x-4 ">
+                    <button onclick="selectMenu( 'Testing') " class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded ">Testing</button>
+                    <button onclick="selectMenu( 'Java') " class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded ">Java</button>
+                    <button onclick="selectMenu( '.Net') " class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded ">.Net</button>
+                    <button onclick="selectMenu( 'DataBase') " class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded ">DataBase</button>
+                </div>
+                <p id="singleMenuMessage" class="mt-4 text-gray-700 font-medium "></p>
+            </div>
+
+            <!-- Sub Menus Section -->
+            <div id="subMenus" class="tab-content" style="display: none;">
+                <div class=" flex space-x-6 ">
+                    <!-- Example: Java -->
+                    <div class="relative group">
+                        <button class="bg-green-500 text-white px-4 py-2 rounded ">Java</button>
+                        <div class="absolute top-full left-0 mt-1 bg-white border rounded shadow-md hidden group-hover:block z-10 w-48 ">
+                            <button onclick="selectSubmenu( 'Spring') " class="block w-full text-left px-4 py-2 hover:bg-green-100 ">Spring</button>
+                            <button onclick="selectSubmenu( 'Hibernate') " class="block w-full text-left px-4 py-2 hover:bg-green-100 ">Hibernate</button>
+                        </div>
+                    </div>
+
+                    <!-- Testing -->
+                    <div class="relative group">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded ">Testing</button>
+                        <div class="absolute top-full left-0 mt-1 bg-white border rounded shadow-md hidden group-hover:block z-10 w-48 ">
+                            <button onclick="selectSubmenu( 'Selenium') " class="block w-full text-left px-4 py-2 hover:bg-blue-100 ">Selenium</button>
+                            <button onclick="selectSubmenu( 'Manual Testing') " class="block w-full text-left px-4 py-2 hover:bg-blue-100 ">Manual Testing</button>
+                        </div>
+                    </div>
+
+                    <!-- .Net -->
+                    <div class="relative group">
+                        <button class="bg-purple-500 text-white px-4 py-2 rounded">.Net</button>
+                        <div class="absolute top-full left-0 mt-1 bg-white border rounded shadow-md hidden group-hover:block z-10 w-48">
+                            <button onclick="selectSubmenu( 'ASP.Net') " class="block w-full text-left px-4 py-2 hover:bg-purple-100">ASP.Net</button>
+                            <button onclick="selectSubmenu( 'WPF') " class="block w-full text-left px-4 py-2 hover:bg-purple-100">WPF</button>
+                        </div>
+                    </div>
+
+                    <!-- Database -->
+                    <div class="relative group">
+                        <button class="bg-orange-500 text-white px-4 py-2 rounded">DataBase</button>
+                        <div class="absolute top-full left-0 mt-1 bg-white border rounded shadow-md hidden group-hover:block z-10 w-48">
+                            <button onclick="selectSubmenu( 'MySQL')" class="block w-full text-left px-4 py-2 hover:bg-orange-100">MySQL</button>
+                            <button onclick="selectSubmenu( 'MongoDB')" class="block w-full text-left px-4 py-2 hover:bg-orange-100">MongoDB</button>
+                        </div>
+                    </div>
+                </div>
+                <p id="subMenuMessage" class="mt-4 text-gray-700 font-medium "></p>
+            </div>
+        </main>
+
+
+        <footer>
+            © 2025 JALA Academy. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        const singleMenus = document.getElementById('singleMenus');
+        const subMenus = document.getElementById('subMenus');
+
+        const singleTab = document.getElementById('singleTab');
+        const subTab = document.getElementById('subTab');
+
+        singleTab.addEventListener('click', () => {
+            singleMenus.style.display = 'block';
+            subMenus.style.display = 'none';
+
+            singleTab.classList.add('border-blue-600', 'text-blue-600');
+            subTab.classList.remove('border-blue-600', 'text-blue-600');
+        });
+
+        subTab.addEventListener('click', () => {
+            subMenus.style.display = 'flex'; // use flex if submenu uses flex
+            singleMenus.style.display = 'none';
+
+            subTab.classList.add('border-blue-600', 'text-blue-600');
+            singleTab.classList.remove('border-blue-600', 'text-blue-600');
+        });
+
+        // Menu message handlers
+        function selectMenu(name) {
+            document.getElementById('singleMenuMessage').innerText = `You selected: ${name}`;
+        }
+
+        function selectSubmenu(name) {
+            document.getElementById('subMenuMessage').innerText = `You selected: ${name}`;
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popups</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #3789b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .logout span {
+            cursor: pointer;
+            color: black;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            /* min-height: 0; */
+            /* Prevents sidebar overflow from pushing layout */
+        }
+        
+        nav {
+            width: 220px;
+            background-color: #22313f;
+            color: white;
+            padding: 20px 10px;
+            overflow-y: auto;
+            /* Enables vertical scroll */
+            height: 100%;
+            /* Adjust height based on your header */
+        }
+        
+        nav .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        nav .profile img {
+            width: 60px;
+            border-radius: 50%;
+        }
+        
+        nav .profile h3 {
+            margin: 10px 0 5px;
+        }
+        
+        nav .profile p {
+            margin: 0;
+            font-size: 14px;
+            color: #b0bec5;
+        }
+        
+        nav details summary::after {
+            content: '⯈';
+            float: right;
+        }
+        
+        nav details[open] summary::after {
+            content: '⯆';
+        }
+        
+        nav a,
+        nav summary {
+            color: #d0dfe6;
+            padding: 8px 10px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        nav a:hover,
+        nav summary:hover {
+            background-color: #34495e;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            background-color: white;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 20px 20px;
+        }
+        
+        .breadcrumbs {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumbs a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 83%;
+            height: 50px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 999;
+            flex-shrink: 0;
+        }
+        
+        .container {
+            padding: 2rem;
+        }
+        
+        .popup-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Magnus</div>
+        <div>
+            <a href="index.html" class="logout">
+                <span>🔓 Logout</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <div class="profile">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Profile" />
+                <h3>Guest User</h3>
+                <p>User</p>
+            </div>
+
+            <a href="home.html">🏠 Home</a>
+
+            <details>
+                <summary>👥 Employee</summary>
+                <a href="register.html">Create</a>
+                <a href="search.html">Search</a>
+            </details>
+
+            <details>
+                <summary>📋 More</summary>
+                <a href="multipletabs.html">Multiple Tabs</a>
+                <a href="menu.html">Menu</a>
+                <a href="autocomplete.html">Autocomplete</a>
+                <a href="collapsiblecontent.html">Collapsible Content</a>
+                <a href="images.html">Images</a>
+                <a href="slider.html">Slider</a>
+                <a href="tooltips.html">Tooltips</a>
+                <a href="popups.html">Popups</a>
+                <a href="links.html">Links</a>
+                <a href="cssprop.html">CSS Properties</a>
+                <a href="iframes.html">iFrames</a>
+            </details>
+
+            <details>
+                <summary>⚙️ Settings</summary>
+                <a href="#">Preferences</a>
+            </details>
+        </nav>
+
+        <main>
+            <div class="breadcrumbs">
+                <span>🏠</span> <a href="home.html">Home</a> &nbsp; > &nbsp; <a href="home.html">More</a> &nbsp; > &nbsp;Popups
+            </div>
+
+            <div class="container">
+                <h2>Popups</h2><br>
+                <div class="popup-buttons">
+                    <button onclick="openPopupOne()">Popup One</button>
+                    <button onclick="openPopupTwo()">Popup Two</button>
+                    <button onclick="openPopupThree()">Popup Three</button>
+                    <button onclick="openDuplicateTab()">Duplicate Tab</button>
+                    <button onclick="openInWindowPopup()">In Window Popup</button>
+                    <button onclick="showAlert()">Alert Box</button>
+                    <button onclick="showConfirm()">Confirm Box</button>
+                    <button onclick="showPrompt()">Prompt Box</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            © 2025 JALA Academy. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        let popup1, popup2, popup3;
+
+        function openPopupOne() {
+            popup1 = window.open("https://www.google.com", "Popup1", "width=400,height=400,top=100,left=100");
+        }
+
+        function openPopupTwo() {
+            // if (popup1 && !popup1.closed) {
+            popup2 = window.open("https://www.javatpoint.com", "Popup2", "width=400,height=400,top=100,left=510");
+            // } else {
+            //     alert("Please open Popup One first.");
+            // }
+        }
+
+        function openPopupThree() {
+            // if (popup2 && !popup2.closed) {
+            popup3 = window.open("https://www.tutorialspoint.com", "Popup3", "width=400,height=400,top=100,left=920");
+            // } else {
+            //     alert("Please open Popup Two first.");
+            // }
+        }
+
+        function openDuplicateTab() {
+            // Simulate server error with non-existent route
+            window.open("popups.html", "_blank");
+        }
+
+        function openInWindowPopup() {
+            const popupContent = window.open("", "InWindow", "width=300,height=200,top=200,left=200");
+            popupContent.document.write("<h3 style='text-align:center;'>This is an in-window popup!</h3>");
+        }
+
+        function showAlert() {
+            alert("This is an alert popup!");
+        }
+
+        function showConfirm() {
+            const confirmed = confirm("Do you confirm this action?");
+            alert("You clicked: " + (confirmed ? "OK" : "Cancel"));
+        }
+
+        function showPrompt() {
+            const response = prompt("Enter your name:", "Guest");
+            if (response !== null) {
+                alert("Hello, " + response + "!");
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

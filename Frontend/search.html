@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Employee</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- your CSS file -->
+    <script defer src="search.js"></script>
+    <!-- JavaScript for logic -->
+</head>
+
+<body>
+    <header>
+        <div class="header-left">Magnus</div>
+        <div class="header-right"><a href="index.html">Logout</a></div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="home.html">Home</a> &gt; <a href="#">Employee</a> &gt; <span>Search</span>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Search Employee</h2>
+                <button onclick="location.href='register.html'" class="btn-blue">Add Employee</button>
+            </div>
+
+            <div class="card-body">
+                <div class="form-row">
+                    <label>Name</label>
+                    <input type="text" id="searchName" placeholder="Employee Name">
+                    <label>Mobile No</label>
+                    <input type="text" id="searchMobile" placeholder="Mobile No">
+                    <button type="button" onclick="searchEmployees()" class="btn-green">Search</button>
+                    <button type="button" onclick="clearFilters()" class="btn-red">Clear</button>
+                </div>
+
+                <table id="employeeTable">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Mobile No</th>
+                            <th>Email Id</th>
+                            <th>Gender</th>
+                            <th>Birth Date</th>
+                            <th>Country</th>
+                            <th>City</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filled via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
