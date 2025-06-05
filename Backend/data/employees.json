@@ -1,0 +1,201 @@
+[{
+        "first_name": "Sneha",
+        "last_name": "G",
+        "mobile": "9876543210",
+        "email": "sneha@example.com",
+        "gender": "Female",
+        "dob": "2000-01-01",
+        "country": "India",
+        "city": "Hyderabad"
+    },
+    {
+        "first_name": "Rahul",
+        "last_name": "Kumar",
+        "mobile": "9876501234",
+        "email": "rahul@example.com",
+        "gender": "Male",
+        "dob": "1995-05-10",
+        "country": "India",
+        "city": "Bangalore"
+    },
+    {
+        "first_name": "Aditi",
+        "last_name": "Mehra",
+        "mobile": "9876512345",
+        "email": "aditi@example.com",
+        "gender": "Female",
+        "dob": "1998-09-15",
+        "country": "India",
+        "city": "Mumbai"
+    },
+    {
+        "first_name": "Rohan",
+        "last_name": "Sharma",
+        "mobile": "9876523456",
+        "email": "rohan@example.com",
+        "gender": "Male",
+        "dob": "1993-02-20",
+        "country": "India",
+        "city": "Delhi"
+    },
+    {
+        "first_name": "Meena",
+        "last_name": "Iyer",
+        "mobile": "9876534567",
+        "email": "meena@example.com",
+        "gender": "Female",
+        "dob": "1996-07-25",
+        "country": "India",
+        "city": "Chennai"
+    },
+    {
+        "first_name": "Ankit",
+        "last_name": "Patel",
+        "mobile": "9876545678",
+        "email": "ankit@example.com",
+        "gender": "Male",
+        "dob": "1992-04-30",
+        "country": "India",
+        "city": "Ahmedabad"
+    },
+    {
+        "first_name": "Pooja",
+        "last_name": "Reddy",
+        "mobile": "9876556789",
+        "email": "pooja@example.com",
+        "gender": "Female",
+        "dob": "1997-11-05",
+        "country": "India",
+        "city": "Hyderabad"
+    },
+    {
+        "first_name": "Aman",
+        "last_name": "Verma",
+        "mobile": "9876567890",
+        "email": "aman@example.com",
+        "gender": "Male",
+        "dob": "1991-03-18",
+        "country": "India",
+        "city": "Pune"
+    },
+    {
+        "first_name": "Kavya",
+        "last_name": "Singh",
+        "mobile": "9876578901",
+        "email": "kavya@example.com",
+        "gender": "Female",
+        "dob": "1999-08-22",
+        "country": "India",
+        "city": "Kolkata"
+    },
+    {
+        "first_name": "Arjun",
+        "last_name": "Das",
+        "mobile": "9876589012",
+        "email": "arjun@example.com",
+        "gender": "Male",
+        "dob": "1994-12-10",
+        "country": "India",
+        "city": "Guwahati"
+    },
+    {
+        "first_name": "Nisha",
+        "last_name": "Bhat",
+        "mobile": "9876590123",
+        "email": "nisha@example.com",
+        "gender": "Female",
+        "dob": "1998-06-09",
+        "country": "India",
+        "city": "Mangalore"
+    },
+    {
+        "first_name": "Manoj",
+        "last_name": "Nair",
+        "mobile": "9876500987",
+        "email": "manoj@example.com",
+        "gender": "Male",
+        "dob": "1990-01-01",
+        "country": "India",
+        "city": "Trivandrum"
+    },
+    {
+        "first_name": "Divya",
+        "last_name": "Kapoor",
+        "mobile": "9876511987",
+        "email": "divya@example.com",
+        "gender": "Female",
+        "dob": "1996-02-12",
+        "country": "India",
+        "city": "Ludhiana"
+    },
+    {
+        "first_name": "Suresh",
+        "last_name": "Rao",
+        "mobile": "9876522987",
+        "email": "suresh@example.com",
+        "gender": "Male",
+        "dob": "1992-10-18",
+        "country": "India",
+        "city": "Vijayawada"
+    },
+    {
+        "first_name": "Isha",
+        "last_name": "Malhotra",
+        "mobile": "9876533987",
+        "email": "isha@example.com",
+        "gender": "Female",
+        "dob": "1997-03-21",
+        "country": "India",
+        "city": "Dehradun"
+    },
+    {
+        "first_name": "Kiran",
+        "last_name": "Joshi",
+        "mobile": "9876544987",
+        "email": "kiran@example.com",
+        "gender": "Male",
+        "dob": "1995-08-08",
+        "country": "India",
+        "city": "Indore"
+    },
+    {
+        "first_name": "Neha",
+        "last_name": "Singhania",
+        "mobile": "9876555987",
+        "email": "neha@example.com",
+        "gender": "Female",
+        "dob": "2000-12-15",
+        "country": "India",
+        "city": "Nagpur"
+    },
+    {
+        "first_name": "Vikram",
+        "last_name": "Gupta",
+        "mobile": "9876566987",
+        "email": "vikram@example.com",
+        "gender": "Male",
+        "dob": "1993-11-03",
+        "country": "India",
+        "city": "Bhopal"
+    },
+    {
+        "first_name": "Anjali",
+        "last_name": "Roy",
+        "mobile": "9876577987",
+        "email": "anjali@example.com",
+        "gender": "Female",
+        "dob": "1999-04-27",
+        "country": "India",
+        "city": "Patna"
+    },
+    {
+        "first_name": "Rajeev",
+        "last_name": "Mishra",
+        "mobile": "9876588987",
+        "email": "rajeev@example.com",
+        "gender": "Male",
+        "dob": "1991-09-19",
+        "country": "India",
+        "city": "Kanpur"
+    }
+]
